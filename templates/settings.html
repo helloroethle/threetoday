@@ -1,0 +1,57 @@
+<ion-view view-title="Settings">
+  <ion-content>
+  
+	<div class="list list-inset">
+	      <div class="item item-divider">
+	    Account Information
+	  </div> 
+<!-- 	    <label class="item item-input item-stacked-label">
+	      <span class="input-label">Name</span>
+	      <input ng-model="email" type="text" placeholder="John">
+	    </label> -->
+	    <label class="item item-input item-stacked-label">
+	      <span class="input-label">Username</span>
+	      <input ng-model="displayName.displayName" type="text" placeholder="username">
+	    </label>
+	    <label class="item item-input item-stacked-label">
+	      <span class="input-label">Email</span>
+	      <input ng-model="email" type="text" placeholder="email@email.com">
+	    </label>
+	    <label class="item item-input item-stacked-label">
+	      <span class="input-label">Current Password</span>
+	      <input ng-model="password" type="text" placeholder="*******">
+	    </label>
+	    <label class="item item-input item-stacked-label">
+	      <span class="input-label">New Password</span>
+	      <input ng-model="password" type="text" placeholder="*******">
+	    </label>
+	    	<!-- <div class="padding"> -->
+	  <button ng-disabled="!displayName || !email" class="item button button-block button-positive">Update</button>	  
+	<!-- </div> -->
+	  </div>
+<div class="padding">
+<ul class="list list-inset">
+	<li class="item item-divider">
+	    App Settings
+	  </li> 
+  <li class="item item-checkbox">
+     <label class="checkbox checkbox-balanced">
+       <input type="checkbox">
+     </label>
+     Show Progress Colors on History
+  </li>
+</ul>
+
+<button class="button button-block button-assertive">
+  Delete History
+</button>
+
+<button class="button button-block button-positive">
+  Logout
+</button>
+</div>
+
+
+
+  </ion-content>
+</ion-view>

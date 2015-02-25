@@ -1,0 +1,79 @@
+<ion-view view-title="History" >
+<!-- <ion-nav-title>
+    <button class="button button-clear" ng-click="options.showProgress = !options.showProgress;">
+        Tap for Progress
+      </button>
+    </ion-nav-title> -->
+<ion-nav-buttons side="secondary">
+      <button class="button button-clear" ng-click="viewCalendar();">
+        Calendar
+      </button>
+    </ion-nav-buttons>
+  <ion-content>
+  <div class="bar bar-header item-input-inset">
+  <label class="item-input-wrapper">
+    <i class="icon ion-ios7-search placeholder-icon"></i>
+    <input ng-model="options.query" type="search" placeholder="Search">
+  </label>
+  <button ng-click="options.query = '';" class="button button-clear">
+    Cancel
+  </button>
+</div>
+<!-- <ul class="list" style="margin:0px;">
+
+  <li class="item item-toggle">
+     Show Progress
+     <label class="toggle toggle-balanced">
+       <input ng-model="options.showProgress" type="checkbox">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+</ul> -->
+	<ion-list show-delete="false" can-swipe="true">
+        <div ng-repeat="group in groups | filter:search" >
+          <ion-item class="item-stable" ng-class="{active: isGroupShown(group)}" 
+                    ng-click="toggleGroup(group)">
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+            <span ng-class="{'success' : (group.status == 'success' && options.showProgress), 'partial' : (group.status == 'partial' && options.showProgress), 'fail' : (group.status == 'fail' && options.showProgress)}">{{group.name}} {{group.status}}</span>
+<!--                 <ion-delete-button class="ion-minus-circled"
+                       ng-click="console.log('delete item');">
+    </ion-delete-button> -->
+<!--     <ion-option-button class="button-positive"
+                       ng-click="console.log('view history item');">
+      View
+    </ion-option-button> -->
+    <ion-option-button class="button-assertive"
+                       ng-click="console.log('delete history item');">
+      Delete
+    </ion-option-button>
+          </ion-item>
+          <ul class="list" ng-show="isGroupShown(group)" >
+<!-- ion-close-circled  -->
+<!-- ion-checkmark-circled -->
+        <li ng-repeat="item in group.items" class="item item-icon-left">
+          <i ng-show="item.accomplished" class="icon ion-checkmark-circled success"></i>
+          <i ng-hide="item.accomplished" class="icon ion-close-circled fail"></i>
+            <span class='task-title' ng-class="{ 'success':item.accomplished, 'fail':!item.accomplished }">{{item.title || item}}</span>
+            <i class="icon ion-clock positive" style="display:inline-block; position:relative; font-size:18px; float:right; top:1px;"></i>
+            <span class='task-time positive' style="float:right;">##:## ##</span>
+             
+          </li>
+          <li class="item" style='padding:0px;margin:0px;'>
+            <button class="button button-full button-positive" style="margin:0px;">
+              View
+            </button>
+          </li>
+          </ul>
+<!--           <ion-item class="item-accordion"
+                    ng-repeat="item in group.items"
+                    ng-show="isGroupShown(group)">
+            <a href="#/app/three/1">{{item}}</a>
+          </ion-item> -->
+        </div>
+      </ion-list>
+
+  </ion-content>
+</ion-view>

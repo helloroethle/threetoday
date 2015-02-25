@@ -1,0 +1,48 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">{{options.title}}</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="cancelFriendModal();">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+ <div class="list list-inset">
+<!--       <div class="item item-divider">
+    Add Friends
+  </div>  -->
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">First Name</span>
+      <input ng-model="newFriend.first" type="text" placeholder="John">
+    </label>
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">Last Name</span>
+      <input ng-model="newFriend.last" type="text" placeholder="Suhr">
+    </label>
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">Email</span>
+      <input ng-model="newFriend.email" type="text" placeholder="john@suhr.com">
+    </label>
+    <label class="item item-input item-stacked-label">
+          <span class="input-label">Send Email At:</span>
+          <input ng-model="newFriend.time" type="time" placeholder="05:00 PM">
+        </label>
+
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Frequency
+    </div>
+    <select ng-model="newFriend.frequency">
+      <option selected>Daily</option>
+      <option>Weekly</option>
+      <option>Monthly</option>
+    </select>
+  </label>
+
+  </div>
+<div class="padding">
+  <button ng-disabled="!newFriend.first || !newFriend.last || !newFriend.email || !newFriend.time" ng-click="saveFriendModal();" class="button button-block button-positive">Save</button>
+</div>
+
+
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,121 @@
+<ion-view view-title="Enter Time">
+  <ion-content>
+<!--   <ion-header-bar class="bar-positive">
+      <h1 class="title">Task #</h1>
+    </ion-header-bar> -->
+
+    <!-- <div style="min-height:200px; "> -->
+    <div>
+
+<div class="list" style="margin-bottom:0px;">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Task:
+        </div>
+        <select  ng-model="newTime.selectedTaskItem">
+          <option value="1">{{newTime.task1.title}}</option>
+          <option value="2">{{newTime.task2.title}}</option>
+          <option value="3">{{newTime.task3.title}}</option>
+        </select>
+      </label>
+  <label class="item item-input" > <!-- ng-click="prepareUpdateStartTime();" -->
+    <span class="input-label">Start Time</span>
+    <!-- <input type="time" ng-model="startTime" time-input></input> -->
+    <!-- <input my-directive type="text" ng-model="startTime" />  -->
+<!--     <input ng-show="options.editTime == true;" ng-blur="updateStartTime();" type="text" ng-model="options.startTimeEdit"></input> -->
+    <span class='right-text'>{{startTime | date : 'shortTime'}}</span>
+  </label>
+  <label class="item item-input">
+    <span class="input-label">End Time</span>
+    <span class='right-text'>{{endTime | date : 'shortTime'}}</span>
+  </label>
+</div>
+  <timer autostart="false" interval="1000">
+<div style="margin-left:0px; margin-right:0px; padding-left:0px; padding-right:0px;" class="row timer">
+
+  <div class="col">
+        <div class="progress-wrapper">
+            <div class="progress">{{ hhours }}</div>
+  	<div
+    round-progress
+    max="60"
+    current="hours"
+    color="#33cd5f"
+    bgcolor="#eaeaea"
+    radius="40"
+    stroke="10"
+    rounded="false"
+    iterations="60"
+    animation="linearEase"></div>
+    <div class="progress-time-element">Hours</div>
+        </div>
+  </div>
+  <div class="col">
+        <div class="progress-wrapper">
+            <div class="progress">{{ mminutes }}</div>
+  	<div
+    round-progress
+    max="60"
+    current="minutes"
+    color="#33cd5f"
+    bgcolor="#eaeaea"
+    radius="40"
+    stroke="10"
+    rounded="false"
+    iterations="60"
+    animation="linearEase"></div>
+    <div class="progress-time-element">Minutes</div>
+        </div>
+  </div>
+  <div class="col">
+  	<!-- <div class="circle">{{sseconds}}</div> -->
+
+        <div class="progress-wrapper">
+            <div class="progress">{{ sseconds }}</div>
+  	<div
+    round-progress
+    max="60"
+    current="seconds"
+    color="#33cd5f"
+    bgcolor="#eaeaea"
+    radius="40"
+    stroke="10"
+    rounded="false"
+    iterations="60"
+    animation="linearEase"></div>
+    <div class="progress-time-element">Seconds</div>
+        </div>
+  </div>
+
+
+
+</div>
+
+	</timer>
+
+
+
+
+
+
+    </div>
+    <div class="padding">
+      <button ng-click="startResumeTimer();" class="button button-block button-positive">
+        {{timerButtonText}}
+      </button>
+      <button ng-show="timerStarted" ng-click="restartTimer();" class="button button-block button-assertive">
+        Restart Timer
+      </button>
+      <button ng-show="timerStarted" ng-click="stopTimer(); showTimeModal();" class="button button-block button-balanced">
+        Add Time
+      </button> 
+      <button ng-hide="timerStarted" ng-click="showTimeModal();" class="button button-block button-balanced">
+        Enter Time
+      </button> 
+
+    </div>
+
+
+	    
+  </ion-content>
+</ion-view>

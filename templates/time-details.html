@@ -1,0 +1,93 @@
+<ion-view view-title="Time Entries">
+  <ion-content>
+
+<div style="margin-left:0px; margin-right:0px; padding-left:0px; padding-right:0px;" class="row timer">
+  <div class="col">
+        <div class="progress-wrapper">
+            <div class="progress">{{ hours }}</div>
+  	<div
+    round-progress
+    max="60"
+    current="hours"
+    color="#33cd5f"
+    bgcolor="#eaeaea"
+    radius="40"
+    stroke="10"
+    rounded="false"
+    iterations="60"
+    animation="linearEase"></div>
+    <div class="progress-time-element">Hours</div>
+        </div>
+  </div>
+  <div class="col">
+        <div class="progress-wrapper">
+            <div class="progress">{{ minutes }}</div>
+  	<div
+    round-progress
+    max="60"
+    current="minutes"
+    color="#33cd5f"
+    bgcolor="#eaeaea"
+    radius="40"
+    stroke="10"
+    rounded="false"
+    iterations="60"
+    animation="linearEase"></div>
+    <div class="progress-time-element">Minutes</div>
+        </div>
+  </div>
+  <div class="col">
+  	<!-- <div class="circle">{{sseconds}}</div> -->
+
+        <div class="progress-wrapper">
+            <div class="progress">{{ seconds }}</div>
+  	<div
+    round-progress
+    max="60"
+    current="seconds"
+    color="#33cd5f"
+    bgcolor="#eaeaea"
+    radius="40"
+    stroke="10"
+    rounded="false"
+    iterations="60"
+    animation="linearEase"></div>
+    <div class="progress-time-element">Seconds</div>
+        </div>
+  </div>
+
+</div>
+
+<div class="card" ng-repeat="task in tasks">
+  <div class="item item-text-wrap"  ng-click="toggleTask(task)">
+    {{task.title}} <!-- <span style="float:right; padding-right:5px;">{{task.total}}</span> -->
+  </div>
+  <ul class="list" ng-show="isTaskShown(task)" >
+              <li class="item" ng-repeat="item in task.items">
+                {{item.start | date : 'shortTime'}}  - {{item.end | date : 'shortTime'}}
+              </li>
+          </ul>
+</div>
+
+
+<!--   <ion-list can-swipe="true">
+        <div ng-repeat="task in tasks" >
+          <ion-item class="item-stable" ng-class="{active: isTaskShown(task)}" 
+                    ng-click="toggleTask(task)">
+              <i class="icon" ng-class="isTaskShown(task) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+            {{task.title}} {{task.total}}
+                <ion-delete-button class="ion-minus-circled"
+                       ng-click="console.log('delete item');">
+    </ion-delete-button>
+          </ion-item>
+          <ul class="list" ng-show="isTaskShown(task)" >
+              <li class="item" ng-repeat="item in task.items">
+                {{item.start | date : 'shortTime'}}  - {{item.end | date : 'shortTime'}}
+              </li>
+          </ul>
+        </div>
+      </ion-list> -->
+
+  </ion-content>
+</ion-view>

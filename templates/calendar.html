@@ -1,0 +1,38 @@
+
+
+
+<ion-view view-title="Calendar">
+  <ion-content>
+<div ui-calendar="uiConfig.calendar" class="calendar" style="margin-top:20px;" ng-model="eventSources"></div> 
+
+<div class="list card">
+
+
+	<div class="item item-checkbox">
+	     <label class="checkbox">
+	     	<span class="small-circle success"></span>
+	     </label>
+	     All Completed
+	     <span class="badge badge-balanced">#</span>
+	  </div>
+
+	<div class="item item-checkbox">
+	     <label class="checkbox">
+	       <span class="small-circle partial"></span>
+	     </label>
+	     Some Complete
+	     <span class="badge badge-royal">#</span>
+	  </div>
+
+	<div class="item item-checkbox">
+	     <label class="checkbox">
+	       <span class="small-circle fail"></span>
+	     </label>
+	     Missed All
+	     <span class="badge badge-assertive">#</span>
+	  </div>
+</div>
+
+
+  </ion-content>
+</ion-view>

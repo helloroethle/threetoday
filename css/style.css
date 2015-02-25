@@ -1,0 +1,281 @@
+/* Empty. Add your own CSS if you like */
+.circle
+    {
+    width:100px;
+    height:100px;
+    border-radius:50px;
+    font-size:50px;
+    line-height:100px;
+    text-align:center;
+    margin:20px auto 0px;
+    background-color:#11c1f3;
+    color:#fff;
+    }
+
+.progress-wrapper{
+            position: relative;
+            margin:0px auto 0px;
+            font-size: 40px;
+            height:120px;
+            width:100px;
+        }
+
+/*        .progress{
+            position: absolute;
+            width:120px;
+            height: 100%;
+            line-height: 6em;
+            font-size:20px;
+            text-align: center;
+            color: #bbb;
+        }*/
+.progress {
+position: absolute;
+width: 100px;
+height: 100%;
+line-height: 5em;
+font-size: 20px;
+text-align: center;
+color: #bbb;
+}
+
+.progress-time-element{
+	position:absolute;
+	width:100px;
+	bottom:0px;
+	text-align:center;
+	height:20px;
+	font-size:16px;
+	color: #555;
+}
+
+
+div.list label.item.has-input{
+	border-color:#11c1f3;
+}
+
+label.item span.has-input{
+	color: #11c1f3;
+}
+
+.beautiful-green{
+    color: #33cd7b;
+}
+
+.bar.bar-stable .title{
+    color: #387ef5;
+}
+
+.current-streak{
+    border-radius: 10px;
+    border: 10px solid #f7f7f7;
+    background-color: #33cd7b;
+    color: #fff;
+    height:150px;
+    width:250px;
+    margin:0px auto;
+            font-size:20px;
+            text-align: center;   
+}
+
+.current-streak p{
+    height:25px;
+    margin:0px;
+}
+
+.streak-number{
+    font-size:75px;
+    line-height:75px;
+    height:75px;
+    vertical-align: middle;
+    margin:0px;
+}
+
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+
+.menu-space{
+    padding-right:10px;
+}
+
+.bar-footer{
+    height:75px;
+    padding:0px 10px;
+}
+
+input[type="text"]{
+    font-size:16px;
+}
+
+.center{
+    text-align:center;
+}
+
+.success{
+    color: #33cd5f;
+}
+
+.partial {
+    color: #886aea;
+}
+
+.fail {
+    color: #ef473a;
+}
+
+.fail-alternative{
+    background-color: #f65a5b;
+}
+
+.empty-checkbox{
+    width: 28px;
+    height: 28px !important;
+    top: 12px !important;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 28px;
+    background: #fff;
+    content: ' ';
+    -webkit-transition: background-color 20ms ease-in-out;
+    transition: background-color 20ms ease-in-out;
+    left: 13px !important;
+}
+
+.capitalize{
+    text-transform: uppercase;
+}
+
+.card .item.checked {
+    border-left: 2px solid #33cd5f;
+    /*text-decoration: line-through;*/
+}
+
+
+.right-text{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 14px 48px 16px 16px;
+    max-width: 65%;
+    border: none;
+    background: #fff;
+    color: #333;
+    white-space: nowrap;
+    font-size: 14px;
+    text-align:right;
+}
+
+.fc-bgevent{
+    opacity: .7;
+}
+
+.fc-unthemed .fc-today{
+    background-color:#f7f7f7;
+}
+
+.small-circle.success{
+opacity:.7;
+background-color:#33cd5f;
+}
+
+.small-circle.partial{
+opacity:.7;
+background-color:#886aea;
+}
+
+.small-circle.fail{
+opacity:.7;
+background-color:#ef473a;
+}
+
+.vertical-center{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.small-circle{
+    width:25px;
+    height:25px;
+    border-radius:12.5px;
+    display:inline-block;
+}
+
+.fc-event{
+    border: #555;
+    background-color: #555;
+    padding:5px;
+    border-radius: 0px;
+}
+
+.fc-center h2{
+    color: #25aaff;
+}
+
+.fc-widget-header {
+    background: #25aaff;
+    color: #fff;
+    border-color: rgba(255,255,255,0.1);
+}
+
+.fc th.fc-widget-header {
+    padding: 10px 5px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.fc-toolbar button{
+    background-color: #fff;
+    border:none;
+    box-shadow: none;
+    background-image:none;
+}
+
+.fc-toolbar .fc-icon{
+    font-size: 3em;
+}
+
+/*.small-circle {
+position: relative;
+width: 28px;
+height: 28px;
+display: block;
+border: 0;
+background: transparent;
+cursor: pointer;
+-webkit-appearance: none;
+}
+.small-circle:before{
+display: table;
+width: 100%;
+height: 100%;
+border-width: 1px;
+border-style: solid;
+border-radius: 28px;
+background: #fff;
+content: ' ';
+-webkit-transition: background-color 20ms ease-in-out;
+transition: background-color 20ms ease-in-out;
+}
+*/
+
+/*.fc-day-number{
+    font-weight:bold;
+}*/
+
+
+

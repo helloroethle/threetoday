@@ -1,0 +1,45 @@
+<ion-view view-title="Accountability">
+<ion-nav-buttons side="secondary">
+      <button class="button button-clear" ng-click="options.showDeleteButtons = !options.showDeleteButtons;">
+        Delete
+      </button>
+    </ion-nav-buttons>
+  <ion-content>
+  <ion-list show-delete="options.showDeleteButtons" can-swipe="false" >
+  <ion-item ng-repeat="item in friends" ng-click="editFriendModal($index);">
+    <ion-delete-button class="ion-minus-circled"
+                       ng-click="console.log('delete item');">
+    </ion-delete-button>
+    <h2>{{item.first}} {{item.last}}</h2>
+    <p>{{item.email}}</p>
+<!--     <ion-option-button class="button-info"
+                       ng-click="edit(item)">
+      Edit
+    </ion-option-button> -->
+  </ion-item>
+</ion-list>
+
+
+
+
+
+<!-- 
+<ul class="list">
+	<li class="item item-divider">
+		Current Friends
+	</li>
+    <li ng-repeat="friend in friends" class="item">
+    	{{friend.first}} {{friend.last}}
+    </li>
+</ul> -->
+
+  </ion-content>
+
+  <ion-footer-bar>
+  	<button ng-click="showFriendModal();" class="button button-block button-balanced placement-bottom">
+	Add New Friend
+</button>
+
+      </ion-footer-bar>
+
+</ion-view>
