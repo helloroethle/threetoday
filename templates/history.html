@@ -37,7 +37,7 @@
                     ng-click="toggleGroup(group)">
               <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
             &nbsp;
-            <span ng-class="{'success' : (group.status == 'success' && options.showProgress), 'partial' : (group.status == 'partial' && options.showProgress), 'fail' : (group.status == 'fail' && options.showProgress)}">{{group.name}} {{group.status}}</span>
+            <span ng-class="{'success' : (group.status == 'success'), 'partial' : (group.status == 'partial'), 'fail' : (group.status == 'fail')}">{{group.name}}</span>
 <!--                 <ion-delete-button class="ion-minus-circled"
                        ng-click="console.log('delete item');">
     </ion-delete-button> -->
@@ -57,15 +57,13 @@
           <i ng-show="item.accomplished" class="icon ion-checkmark-circled success"></i>
           <i ng-hide="item.accomplished" class="icon ion-close-circled fail"></i>
             <span class='task-title' ng-class="{ 'success':item.accomplished, 'fail':!item.accomplished }">{{item.title || item}}</span>
-            <i class="icon ion-clock positive" style="display:inline-block; position:relative; font-size:18px; float:right; top:1px;"></i>
-            <span class='task-time positive' style="float:right;">##:## ##</span>
              
           </li>
-          <li class="item" style='padding:0px;margin:0px;'>
-            <button class="button button-full button-positive" style="margin:0px;">
+<!--           <li class="item" style='padding:0px;margin:0px;'>
+            <button ng-click="operations.viewTimeDetails(group.id);" class="button button-full button-positive" style="margin:0px;">
               View
             </button>
-          </li>
+          </li> -->
           </ul>
 <!--           <ion-item class="item-accordion"
                     ng-repeat="item in group.items"

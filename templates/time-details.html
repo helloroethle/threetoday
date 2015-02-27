@@ -58,13 +58,51 @@
 
 </div>
 
-<div class="card" ng-repeat="task in tasks">
-  <div class="item item-text-wrap"  ng-click="toggleTask(task)">
-    {{task.title}} <!-- <span style="float:right; padding-right:5px;">{{task.total}}</span> -->
+<div class="card" >
+  <div class="item item-text-wrap bold" >
+    {{tasks[0].title}} 
+        <span class="item-note success">
+      {{taskTimes.time1.hours}}:{{taskTimes.time1.minutes}}:{{taskTimes.time1.seconds}}
+    </span> 
   </div>
-  <ul class="list" ng-show="isTaskShown(task)" >
-              <li class="item" ng-repeat="item in task.items">
+  <ul class="list" style="border-top:1px solid #333;" >
+              <li class="item" ng-repeat="item in taskTimes.task1">
                 {{item.start | date : 'shortTime'}}  - {{item.end | date : 'shortTime'}}
+                                <span class="item-note">
+                  {{item.total}}
+                </span>
+              </li>
+          </ul>
+        </div>
+<div class="card" >
+  <div class="item item-text-wrap bold" >
+    {{tasks[1].title}}
+    <span class="item-note success">
+      {{taskTimes.time2.hours}}:{{taskTimes.time2.minutes}}:{{taskTimes.time2.seconds}}
+    </span> 
+  </div>
+  <ul class="list" style="border-top:1px solid #333;"  >
+              <li class="item" ng-repeat="item in taskTimes.task2">
+                {{item.start | date : 'shortTime'}}  - {{item.end | date : 'shortTime'}}
+                <span class="item-note">
+                  {{item.total}}
+                </span>
+              </li>
+          </ul>
+ </div>
+<div class="card" >
+  <div class="item item-text-wrap bold" >
+    {{tasks[2].title}} 
+        <span class="item-note success">
+      {{taskTimes.time3.hours}}:{{taskTimes.time3.minutes}}:{{taskTimes.time3.seconds}}
+    </span> 
+  </div>
+  <ul class="list" style="border-top:1px solid #333;"  >
+              <li class="item" ng-repeat="item in taskTimes.task3">
+                {{item.start | date : 'shortTime'}}  - {{item.end | date : 'shortTime'}}
+                                <span class="item-note">
+                  {{item.total}}
+                </span>
               </li>
           </ul>
 </div>

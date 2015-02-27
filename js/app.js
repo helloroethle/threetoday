@@ -179,7 +179,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     views: {
       'menuContent': {
         templateUrl: "templates/time-details.html",
-        controller: 'ThreeCtrl'
+        controller: 'TimeCtrl'
       }
     }
   });

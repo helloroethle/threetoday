@@ -2,7 +2,7 @@
   <ion-header-bar>
     <h1 class="title">Add Time</h1>
     <div class="buttons">
-      <button class="button button-clear" ng-click="closeTime();">Close</button>
+      <button class="button button-clear" ng-click="operations.closeTime();">Close</button>
     </div>
   </ion-header-bar>
   <ion-content>
@@ -13,36 +13,34 @@
         <div class="input-label">
           Task:
         </div>
-        <select ng-model="newTime.selectedTaskItem">
-          <option value="1">{{newTime.task1.title}}</option>
-          <option value="2">{{newTime.task2.title}}</option>
-          <option value="3">{{newTime.task3.title}}</option>
-        </select>
+<select ng-model="newTime.selectedTaskItem" ng-options="item.title for item in tasks">
+</select>
       </label>
 
         <label class="item item-input">
           <span class="input-label">Start</span>
-          <input class='right-text' ng-blur="newTime.updateTime()" ng-show="!endTime" type="time"  ng-model="newTime.newStartTime"></input>
-          <span class='right-text' ng-hide="!endTime">{{startTime | date : 'shortTime'}}</span>
+          <input class='align-right' ng-blur="operations.updateTime()" type="time"  ng-model="newTime.newStartTime"></input>
+          <!-- <input class='right-text' type="time"  ng-model="startTime"></input> -->
+          <!-- <span class='right-text' ng-hide="!endTime">{{startTime | date : 'shortTime'}}</span> -->
         </label>
         <label class="item item-input">
           <span class="input-label">Finish</span>
-          <input class='right-text' ng-blur="newTime.updateTime()" ng-show="!endTime" type="time" ng-model="newTime.newEndTime"></input>
-          <span class='right-text' ng-hide="!endTime">{{endTime | date : 'shortTime'}}</span>
+          <input class='align-right' ng-blur="operations.updateTime()" type="time" ng-model="newTime.newEndTime"></input>
+          <!-- <span class='right-text' ng-hide="!endTime">{{endTime | date : 'shortTime'}}</span> -->
         </label>
 
-        <label ng-hide="!endTime" class="item item-input">
+<!--         <label ng-hide="!endTime" class="item item-input">
           <span class="input-label">Duration</span>
           <span class='right-text' ng-model='time'>
             {{timeEntry.hours || 0}} hours {{hhours}}, {{timeEntry.minutes || 0}} minute{{mminutes}}, {{timeEntry.seconds || 0}} second{{sseconds}}
             <!-- {{timeEntry.hours}}:{{timeEntry.minutes}}:{{timeEntry.seconds}} -->
-          </span>
-        </label>
+        <!--   </span>
+        </label>  -->
 
-        <label ng-show="!endTime" class="item item-input">
+        <label class="item item-input">
           <span class="input-label">Duration</span>
           <span class='right-text' ng-model='newTime'>
-            {{newTime.hours || 0}} hours, {{newTime.minutes || 0}} minutes
+            {{newTime.hours || 0}} hours, {{newTime.minutes || 0}} minutes, {{newTime.seconds || 0}} seconds
           </span>
         </label>
 
@@ -50,6 +48,6 @@
     </form>
   </ion-content>
   <ion-footer-bar>
-    <button ng-click="finishTime();" class="button button-block button-balanced" type="submit">Add</button>
+    <button ng-click="operations.finishTime();" class="button button-block button-balanced" type="submit">Add</button>
       </ion-footer-bar>
 </ion-modal-view>

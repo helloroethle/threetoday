@@ -3,7 +3,7 @@
 
 <ion-view view-title="Calendar">
   <ion-content>
-<div ui-calendar="uiConfig.calendar" class="calendar" style="margin-top:20px;" ng-model="eventSources"></div> 
+<div calendar="taskCalendar" ui-calendar="uiConfig.calendar" class="calendar" style="margin-top:20px;" ng-model="eventSources"></div> 
 
 <div class="list card">
 
@@ -13,7 +13,7 @@
 	     	<span class="small-circle success"></span>
 	     </label>
 	     All Completed
-	     <span class="badge badge-balanced">#</span>
+	     <span class="badge badge-balanced">{{successCount}}</span>
 	  </div>
 
 	<div class="item item-checkbox">
@@ -21,7 +21,7 @@
 	       <span class="small-circle partial"></span>
 	     </label>
 	     Some Complete
-	     <span class="badge badge-royal">#</span>
+	     <span class="badge badge-royal">{{partialCount}}</span>
 	  </div>
 
 	<div class="item item-checkbox">
@@ -29,7 +29,7 @@
 	       <span class="small-circle fail"></span>
 	     </label>
 	     Missed All
-	     <span class="badge badge-assertive">#</span>
+	     <span class="badge badge-assertive">{{failCount}}</span>
 	  </div>
 </div>
 

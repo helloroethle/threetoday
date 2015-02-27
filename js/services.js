@@ -17,7 +17,14 @@ angular.module('starter.services', ['firebase'])
   var Task = {
     all: allTasks,
     create: function (newTasks) {
+      return todayTasks.$inst().$set(newTasks);
+    },
+    update: function(newTasks){
+      todayTasks = newTasks;
       return todayTasks.$save(newTasks);
+    },
+    getDate: function(newDateKey){
+      return $firebase(ref.child('tasks').child(uid).child(newDateKey)).$asObject();
     },
     get: function () {
       return todayTasks;
@@ -25,8 +32,12 @@ angular.module('starter.services', ['firebase'])
     getCurrentThree: function(){
       return currentThree;
     },
-    saveCurrentThree: function(newCurrentThree){
-      return currentThree.$save(newCurrentThree);
+    updateCurrentThree: function(newCurrentThree){
+      currentThree = newCurrentThree;
+      return currentThree.$save()
+    },
+    createCurrentThree: function(newCurrentThree){
+      return currentThree.$inst().$set(newCurrentThree);
     },
     delete: function () {
       return todayTasks.$remove();
@@ -46,6 +57,10 @@ angular.module('starter.services', ['firebase'])
 
   var Time = {
     all: allTimes,
+    getDate: function(newDateKey){
+      return $firebase(ref.child('times').child(uid).child(newDateKey)).$asArray();
+    },
+    getToday: todayTimes,
     create: function (time) {
       return todayTimes.$add(time);
     },
@@ -88,11 +103,9 @@ angular.module('starter.services', ['firebase'])
   var stats = $firebase(ref.child('users').child(uid).child('overviewStats')).$asObject();
 
   var Stat = {
-    get: function (friend) {
-      return stats;
-    },
-    update: function (newStats) {
-      return stats.$save(newStats);
+    current: stats,
+    update: function () {
+      return stats.$save();
     }
   };
 

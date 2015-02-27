@@ -1,10 +1,5 @@
 <ion-view view-title="Enter Time">
   <ion-content>
-<!--   <ion-header-bar class="bar-positive">
-      <h1 class="title">Task #</h1>
-    </ion-header-bar> -->
-
-    <!-- <div style="min-height:200px; "> -->
     <div>
 
 <div class="list" style="margin-bottom:0px;">
@@ -12,17 +7,15 @@
         <div class="input-label">
           Task:
         </div>
-        <select  ng-model="newTime.selectedTaskItem">
-          <option value="1">{{newTime.task1.title}}</option>
-          <option value="2">{{newTime.task2.title}}</option>
-          <option value="3">{{newTime.task3.title}}</option>
-        </select>
+
+        <select ng-model="newTime.selectedTaskItem" ng-options="item.title for item in tasks">
+</select>
+<!--         <select ng-init="newTime.selectedTaskItem = selectIndex" ng-model="newTime.selectedTaskItem">
+          <option ng-repeat="task in tasks track by $index" value="$index">{{task.title}}</option>
+        </select> -->
       </label>
   <label class="item item-input" > <!-- ng-click="prepareUpdateStartTime();" -->
     <span class="input-label">Start Time</span>
-    <!-- <input type="time" ng-model="startTime" time-input></input> -->
-    <!-- <input my-directive type="text" ng-model="startTime" />  -->
-<!--     <input ng-show="options.editTime == true;" ng-blur="updateStartTime();" type="text" ng-model="options.startTimeEdit"></input> -->
     <span class='right-text'>{{startTime | date : 'shortTime'}}</span>
   </label>
   <label class="item item-input">
@@ -68,7 +61,6 @@
         </div>
   </div>
   <div class="col">
-  	<!-- <div class="circle">{{sseconds}}</div> -->
 
         <div class="progress-wrapper">
             <div class="progress">{{ sseconds }}</div>
@@ -100,16 +92,16 @@
 
     </div>
     <div class="padding">
-      <button ng-click="startResumeTimer();" class="button button-block button-positive">
+      <button ng-click="operations.startResumeTimer();" class="button button-block button-positive">
         {{timerButtonText}}
       </button>
-      <button ng-show="timerStarted" ng-click="restartTimer();" class="button button-block button-assertive">
+      <button ng-show="timerStarted" ng-click="operations.restartTimer();" class="button button-block button-assertive">
         Restart Timer
       </button>
-      <button ng-show="timerStarted" ng-click="stopTimer(); showTimeModal();" class="button button-block button-balanced">
+      <button ng-show="timerStarted" ng-click="operations.stopTimer(); operations.showTimeModal();" class="button button-block button-balanced">
         Add Time
       </button> 
-      <button ng-hide="timerStarted" ng-click="showTimeModal();" class="button button-block button-balanced">
+      <button ng-hide="timerStarted" ng-click="operations.showTimeModal();" class="button button-block button-balanced">
         Enter Time
       </button> 
 

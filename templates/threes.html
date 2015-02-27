@@ -1,129 +1,79 @@
 <ion-view view-title="My Tasks">
-<!-- <ion-nav-buttons side="secondary">
-      <button class="button button-clear" ng-click="">
+<ion-nav-buttons side="secondary" >
+      <button ng-show="viewOptions.completed" class="button button-clear" ng-click="viewOptions.canEdit = !viewOptions.canEdit;">
         Edit
       </button>
-    </ion-nav-buttons> -->
+    </ion-nav-buttons>
   <ion-content>
 
 
 
 <div class="list" ng-hide="viewOptions.submitted">
-<!-- <ion-toggle ng-change="confirmPopup()" ng-model="submitted" toggle-class="toggle-balanced">Lock in my three today!</ion-toggle> -->
-	
 
-<!--   <label class="item item-input">
-    <span class="input-label">First</span>
-    <input type="text">
-  </label>
-  <label class="item item-input">
-    <span class="input-label">Second</span>
-    <input type="text">
-  </label>
-  <label class="item item-input">
-    <span class="input-label">Third</span>
-    <input type="text">
-  </label> -->
-
-
-  <label ng-class="{'has-input' : firstthree.length }"  class="item item-input item-avatar">
+  <label class="item item-input item-avatar">
   	<img src="img/number-1.png">
-    <input ng-model="tasks.firstTask" class="capitalize" required type="text" style="margin-left:50px;" placeholder="first order of business">
+    <input ng-model="tasks.task1.title" class="capitalize" required type="text" style="margin-left:50px;" placeholder="first order of business">
   </label>
-  <label ng-class="{'has-input' : firstthree.length }"  class="item item-input item-avatar">
+  <label class="item item-input item-avatar">
   	<img src="img/number-2.png">
-    <input ng-model="tasks.secondTask" class="capitalize" required type="text" style="margin-left:50px;" placeholder="next up">
+    <input ng-model="tasks.task2.title" class="capitalize" required type="text" style="margin-left:50px;" placeholder="next up">
   </label>
-  <label ng-class="{'has-input' : firstthree.length }"  class="item item-input item-avatar">
+  <label class="item item-input item-avatar">
   	<img src="img/number-3.png">
-    <input ng-model="tasks.thirdTask" class="capitalize"  required type="text" style="margin-left:50px;" placeholder="last but not least">
+    <input ng-model="tasks.task3.title" class="capitalize"  required type="text" style="margin-left:50px;" placeholder="last but not least">
   </label>
 
-<!--   <label ng-class="{'has-input' : firstthree.length }"  class="item item-input item-floating-label">
-    <span class="input-label">first order of business</span>
-    <input ng-model="firstthree" type="text" placeholder="first order of business">
-  </label>
-  <label ng-class="{'has-input' : secondthree.length }" class="item item-input item-floating-label">
-    <span class="input-label">next up</span>
-    <input ng-model="secondthree" type="text" placeholder="next up">
-  </label>
-  <label ng-class="{'has-input' : thirdthree.length }"  class="item item-input item-floating-label">
-    <span class="input-label ">last but not least</span>
-    <input ng-model="thirdthree" type="text" placeholder="last but not least">
-  </label> -->
 </div>
 
 <div ng-show="viewOptions.submitted">
 
-
-<!-- <div class="card" ng-click="item.accomplished = !item.accomplished;" >
-  <div class="item item-text-wrap item-icon-left" on-swipe-left="logFunction();">
-    <i ng-show="item.accomplished" class="icon ion-checkmark-circled success"></i>
-    <i ng-hide="item.accomplished" class="icon empty-checkbox success"></i>
-      <span class='task-title'>{{tasks.firstTask}}</span>
-  </div>
-</div>
- -->
-
 <div class="list card">
 
 
-	<div class="item item-checkbox checkbox-balanced" ng-class="{'checked' : tasks.firstComplete}" on-swipe-left="tasks.swipeLeft(1);">
+	<div class="item item-checkbox checkbox-balanced" ng-class="{'checked' : tasks.task1.accomplished}" on-swipe-left="operations.swipeLeft(1);">
 	     <label class="checkbox">
-	       <input ng-change="tasks.completeTask(1)" ng-model="tasks.firstComplete" type="checkbox">
+	       <input ng-disabled="viewOptions.completed && !viewOptions.canEdit" ng-change="operations.completeTask(1)" ng-model="tasks.task1.accomplished" type="checkbox">
 	     </label>
-	     {{tasks.firstTask | uppercase}}
+	     {{tasks.task1.title | uppercase}}
 	  </div>
 
-	<div class="item item-checkbox checkbox-balanced" ng-class="{'checked' : tasks.secondComplete}" on-swipe-left="tasks.swipeLeft(2);">
+	<div class="item item-checkbox checkbox-balanced" ng-class="{'checked' : tasks.task2.accomplished}" on-swipe-left="operations.swipeLeft(2);">
 	     <label class="checkbox">
-	       <input ng-change="tasks.completeTask(2)" ng-model="tasks.secondComplete" type="checkbox">
+	       <input ng-disabled="viewOptions.completed && !viewOptions.canEdit" ng-change="operations.completeTask(2)" ng-model="tasks.task2.accomplished" type="checkbox">
 	     </label>
-	     {{tasks.secondTask | uppercase}}
+	     {{tasks.task2.title | uppercase}}
 	  </div>
 
-	<div class="item item-checkbox checkbox-balanced" ng-class="{'checked' : tasks.thirdComplete}" on-swipe-left="tasks.swipeLeft(3);">
+	<div class="item item-checkbox checkbox-balanced" ng-class="{'checked' : tasks.task3.accomplished}" on-swipe-left="operations.swipeLeft(3);">
 	     <label class="checkbox">
-	       <input ng-change="tasks.completeTask(3)" ng-model="tasks.thirdComplete" type="checkbox">
+	       <input ng-disabled="viewOptions.completed && !viewOptions.canEdit" ng-change="operations.completeTask(3)" ng-model="tasks.task3.accomplished" type="checkbox">
 	     </label>
-	     {{tasks.thirdTask | uppercase}}
+	     {{tasks.task3.title | uppercase}}
 	  </div>
 </div>
+
 <div class="padding">
     <a href="#/app/enter-time/1" class="button button-block button-positive">
     <i class="icon ion-plus-round menu-space"></i> Add Time
   </a>
-    <a href="#/app/time-entries" class="button button-block button-calm">
+    <button ng-click="operations.viewTimes()" class="button button-block button-calm">
     <i class="icon ion-eye menu-space"></i> <span style="margin-left:5px;">View Times</span>
-  </a>
+  </button>
 </div>
 
-</div>
 
-
-<!-- 	<div class="item item-checkbox checkbox-balanced">
-	     <label class="checkbox">
-	       <input ng-change="showConfirm();" ng-model="viewOptions.prelimSubmit" type="checkbox">
-	     </label>
-	     Save my three for today!
-	  </div>
- -->
-
-<!--  <div class="bar bar-footer">
-<button ng-click="showConfirm();" class="button button-block button-balanced placement-bottom">
-	Save my three for today!
-</button>
-</div> -->
 <div ng-show="viewOptions.showStreak" class="current-streak">
-	<p class='current-streak-top'>Current</p>
-	<div class="streak-number">{{streak}}</div>
-	<p class='current-streak-bottom'>Streak</p>
+  <p class='current-streak-top'>Current</p>
+  <div class="streak-number">{{streak}}</div>
+  <p class='current-streak-bottom'>Streak</p>
 </div>
 
 
+
+</div>
   </ion-content>
   <ion-footer-bar ng-hide="viewOptions.submitted">
-  	<button  ng-disabled="!tasks.firstTask || !tasks.secondTask || !tasks.thirdTask"   ng-click="showConfirm();" class="button button-block button-balanced placement-bottom">
+  	<button  ng-disabled="!tasks.task1.title || !tasks.task2.title || !tasks.task3.title"   ng-click="operations.showConfirm();" class="button button-block button-balanced placement-bottom">
 	Save my three for today!
 </button>
 
